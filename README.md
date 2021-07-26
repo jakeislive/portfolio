@@ -8,7 +8,7 @@
   The <a href="https://jacobabraham.live" target="_blank">jacobabraham.live</a> built with <a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a> and hosted with <a href="https://www.netlify.com/" target="_blank">Netlify</a>
 </p>
 
-![demo](https://raw.githubusercontent.com/jacob13400/portfolio/main/src/images/demo.png)
+![demo](https://github.com/jacob13400/portfolio/blob/1b78bb57775a041fbe364a9a332a9cd343c177ee/src/images/demo.png)
 
 ## 🚨 Forking this repo (please read!)
 
