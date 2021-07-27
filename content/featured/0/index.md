@@ -1,14 +1,14 @@
 ---
 date: '3'
-title: 'OctoProfile'
-cover: './octoprofile.png'
-github: 'https://github.com/bchiang7/octoprofile'
-external: 'https://octoprofile.now.sh'
+title: 'Mentem'
+cover: './mentem.png'
+github: 'https://github.com/jacob13400/Mentem'
 tech:
-  - Next.js
-  - Chart.js
-  - GitHub API
+  - Node.js
+  - OpenCV
+  - SpaCy
+  - WebRTC
 showInProjects: true
 ---
 
-A nicer look at your GitHub profile and repository stats with data visualizations of your top languages and stars. Sort through your top repos by number of stars, forks, and size.
+Mentem was originally intended to be an all in one platform for health clinics to provide assistance,and for people like you and me to seek medical support. It is being developed into an all in one platform i.e. a hospital ERPs
