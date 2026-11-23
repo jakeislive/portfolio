@@ -36,8 +36,9 @@ nav a { display: inline-flex; align-items: center; min-height: 44px; font-size: 
 .intro > p:not(.eyebrow):not(.intro-lead):not(.availability) { color: #4c554e; }
 .availability { display: flex; align-items: baseline; gap: 9px; font-size: 14px; line-height: 1.6; color: var(--muted); margin-top: 24px; }
 .status-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; background: #5b795c; }
-.social-links { display: flex; flex-wrap: wrap; gap: 28px; margin-top: 16px; font-size: 14px; }
+.social-links { display: flex; align-items: center; gap: 16px; overflow-x: auto; margin-top: 16px; font-size: 14px; }
 .social-links a, .text-link { display: inline-flex; align-items: center; gap: 9px; min-height: 44px; text-decoration: none; }
+.social-links a { flex-shrink: 0; white-space: nowrap; }
 .section { border-top: 1px solid var(--line); padding-top: 34px; margin-top: 42px; scroll-margin-top: 24px; }
 .section-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 28px; }
 .section-note { color: var(--muted); font-size: 13px; }
