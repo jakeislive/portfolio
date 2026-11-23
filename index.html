@@ -1,911 +1,160 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jacob Abraham - Software Developer Portfolio</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Contact Bar */
-        .contact-bar {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1.5rem;
-            padding: 1.5rem 0;
-            margin-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .contact-bar a {
-            color: white;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 1rem;
-            padding: 0.6rem 1.25rem;
-            border-radius: 25px;
-            transition: all 0.3s;
-            background: rgba(255, 255, 255, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .contact-bar a:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .contact-icon {
-            font-size: 1rem;
-        }
-
-        /* Header & Navigation */
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            z-index: 100;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #667eea;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #333;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #667eea;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 6rem 0;
-            text-align: center;
-            margin-top: 2rem;
-            border-radius: 10px;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero .subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .hero .description {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: white;
-            color: #667eea;
-            font-weight: bold;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn-secondary:hover {
-            background: white;
-            color: #667eea;
-        }
-
-        /* Highlight Stats */
-        .highlight-stats {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            display: block;
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #fff;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        /* About Section */
-        .section {
-            background: white;
-            padding: 3rem 0;
-            margin: 2rem 0;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: #667eea;
-            text-align: center;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .about-text h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-
-        .about-text p {
-            margin-bottom: 1rem;
-            font-size: 1.05rem;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
-
-        .skill-category {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
-        }
-
-        .skill-category h4 {
-            margin-bottom: 0.5rem;
-            color: #667eea;
-        }
-
-        .skill-category p {
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        /* Skills Showcase */
-        .skills-showcase {
-            margin-bottom: 2rem;
-        }
-
-        .skills-row {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .skill-category-main {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
-        }
-
-        .skill-category-main h4 {
-            margin-bottom: 1rem;
-            color: #333;
-            font-size: 1.1rem;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .skill-tag {
-            background: #e9ecef;
-            color: #495057;
-            padding: 0.35rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-        }
-
-        .skill-tag.primary {
-            background: #667eea;
-            color: white;
-        }
-
-        .about-summary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: 10px;
-            margin-top: 2rem;
-        }
-
-        .about-summary h3 {
-            text-align: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-        }
-
-        .value-props {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        .value-prop {
-            background: rgba(255,255,255,0.1);
-            padding: 1rem;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 8px;
-            border-top: 4px solid #667eea;
-            transition: all 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .project-card h3 {
-            color: #667eea;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-card p {
-            color: #666;
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-        }
-
-        .project-tags {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .tag {
-            background: #667eea;
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-        }
-
-        .project-link {
-            display: inline-block;
-            margin-top: 1rem;
-            color: #667eea;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        .project-link:hover {
-            color: #764ba2;
-        }
-
-        .project-card.featured-project {
-            border-top: 4px solid #667eea;
-            background: linear-gradient(180deg, #f8f9fa 0%, #fff 100%);
-        }
-
-        .project-type {
-            display: inline-block;
-            background: #667eea;
-            color: white;
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.7rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            margin-bottom: 0.75rem;
-        }
-
-        .project-highlights {
-            margin: 1rem 0;
-            padding-left: 1.25rem;
-            color: #555;
-            font-size: 0.9rem;
-        }
-
-        .project-highlights li {
-            margin-bottom: 0.4rem;
-            line-height: 1.5;
-        }
-
-        /* Experience Section */
-        .timeline {
-            position: relative;
-            padding: 2rem 0;
-        }
-
-        .timeline-item {
-            margin-bottom: 2rem;
-            padding-left: 2rem;
-            border-left: 3px solid #667eea;
-            position: relative;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -10px;
-            top: 0;
-            width: 16px;
-            height: 16px;
-            background: #667eea;
-            border-radius: 50%;
-        }
-
-        .timeline-item h3 {
-            color: #667eea;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-item .date {
-            color: #999;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-item p {
-            color: #666;
-        }
-
-        .timeline-item ul {
-            margin: 0.5rem 0;
-            padding-left: 1.5rem;
-        }
-
-        .timeline-item li {
-            margin-bottom: 0.5rem;
-            line-height: 1.6;
-        }
-
-        .timeline-item.featured {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            padding-left: 2.5rem;
-            border-radius: 8px;
-            margin-left: 0;
-        }
-
-        .company-badge {
-            display: inline-block;
-            background: #667eea;
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-        }
-
-        .company-badge.aws {
-            background: #ff9900;
-        }
-
-        .tech-used {
-            margin-top: 1rem;
-            padding: 0.75rem;
-            background: #e9ecef;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            color: #495057;
-        }
-
-        .education-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .education-card {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-top: 4px solid #667eea;
-            position: relative;
-        }
-
-        .degree-badge {
-            position: absolute;
-            top: -12px;
-            right: 1rem;
-            background: #667eea;
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-
-        .education-card h3 {
-            color: #333;
-            margin-bottom: 0.5rem;
-        }
-
-        .education-card .school {
-            color: #667eea;
-            font-weight: bold;
-            margin-bottom: 0.25rem;
-        }
-
-        .education-card .location,
-        .education-card .date {
-            color: #999;
-            font-size: 0.9rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .education-card .focus {
-            margin-top: 0.5rem;
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        /* Footer */
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .social-links a:hover {
-            color: #667eea;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            nav ul {
-                gap: 1rem;
-                font-size: 0.9rem;
-            }
-
-            .skills-grid,
-            .skills-row,
-            .education-grid,
-            .value-props {
-                grid-template-columns: 1fr;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-            }
-
-            .highlight-stats {
-                gap: 1.5rem;
-            }
-
-            .stat-number {
-                font-size: 2rem;
-            }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbfbf8">
+  <title>Jacob Abraham | Software Engineer | Backend and AI</title>
+  <meta name="description" content="Jacob Abraham, software engineer with experience at Geotab, Kotak Mahindra Bank and Amazon. Real-time backend systems, cloud data pipelines and AI agents. MEng Computer Engineering student at Waterloo, graduating April 2027.">
+  <link rel="canonical" href="https://jacobabraham.me/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Jacob Abraham | Software Engineer | Backend and AI">
+  <meta property="og:description" content="Real-time backend systems, cloud data pipelines and AI agents. Experience at Geotab, Kotak Mahindra Bank and Amazon. MEng Computer Engineering student at Waterloo, graduating April 2027.">
+  <meta property="og:url" content="https://jacobabraham.me/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Jacob Abraham",
+      "url": "https://jacobabraham.me/",
+      "jobTitle": "Software Engineer",
+      "description": "Software engineer with experience at Geotab, Kotak Mahindra Bank and Amazon. Pursuing a Master of Engineering in Computer Engineering at the University of Waterloo, expected April 2027.",
+      "email": "mailto:j32abrah@uwaterloo.ca",
+      "sameAs": ["https://github.com/jakeislive", "https://www.linkedin.com/in/jacob-abrahame"],
+      "knowsAbout": ["Backend engineering", "Java", "Python", "C#", ".NET", "AWS", "GCP", "Kafka", "AI agent workflows"],
+      "homeLocation": {"@type": "Place", "name": "Waterloo, Canada"}
+    }
+  </script>
 </head>
 <body>
-    <!-- Navigation -->
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">Jacob Abraham</div>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="page">
+    <header class="site-header">
+      <a class="wordmark" href="#main" aria-label="Jacob Abraham home">ja<span aria-hidden="true">.</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#experience">Experience</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>Jacob Abraham</h1>
-            <p class="subtitle">Software Engineer | 3 Years at Amazon & Kotak</p>
-            <p class="description">
-                Started with paper-reading sessions at MIRIx, got hooked on AI alignment. Built scalable ML solutions at Amazon, then spent time at Kotak figuring out how AI can make banking less painful. Now at Waterloo, still chasing the same questions.
-            </p>
-            <div class="cta-buttons">
-                <a href="#experience" class="btn btn-primary">View Experience</a>
-                <a href="#projects" class="btn btn-primary">See Projects</a>
-            </div>
-
-            <!-- Contact Bar -->
-            <div class="contact-bar">
-                <a href="mailto:j32abrah@uwaterloo.ca">
-                    <span class="contact-icon">✉️</span> j32abrah@uwaterloo.ca
-                </a>
-                <a href="https://www.linkedin.com/in/jacob-abrahame" target="_blank">
-                    <span class="contact-icon">💼</span> LinkedIn
-                </a>
-                <a href="https://github.com/jakeislive" target="_blank">
-                    <span class="contact-icon">🔗</span> GitHub
-                </a>
-            </div>
+    <main id="main">
+      <section class="intro" aria-labelledby="name">
+        <p class="eyebrow">Software engineer · Backend and AI</p>
+        <h1 id="name">Jacob Abraham<span class="accent" aria-hidden="true">.</span></h1>
+        <p class="intro-lead">I build real-time backend systems, cloud data pipelines and tools for AI agents.</p>
+        <p>I’m a Software Developer Intern at Geotab, working on vehicle data ingestion and processing. Previously, I built payment services at Kotak Mahindra Bank and data pipelines and ML infrastructure at Amazon. I’m pursuing a Master of Engineering in Computer Engineering at the University of Waterloo, with graduation expected in April 2027.</p>
+        <p class="availability"><span class="status-dot" aria-hidden="true"></span>Interested in software engineering and AI engineering roles.</p>
+        <div class="social-links" aria-label="Contact and profiles">
+          <a href="mailto:j32abrah@uwaterloo.ca">Email</a>
+          <a href="https://github.com/jakeislive">GitHub</a>
+          <a href="https://www.linkedin.com/in/jacob-abrahame">LinkedIn</a>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-
-            <h2>Technical Skills</h2>
-            <div class="skills-showcase">
-                <div class="skills-row">
-                    <div class="skill-category-main">
-                        <h4>🔧 Backend Development</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag primary">Java</span>
-                            <span class="skill-tag primary">Spring Boot</span>
-                            <span class="skill-tag primary">Python</span>
-                            <span class="skill-tag primary">FastAPI</span>
-                            <span class="skill-tag">REST APIs</span>
-                            <span class="skill-tag">GraphQL</span>
-                            <span class="skill-tag">Microservices</span>
-                        </div>
-                    </div>
-                    <div class="skill-category-main">
-                        <h4>☁️ Cloud & Infrastructure</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag primary">AWS</span>
-                            <span class="skill-tag">Lambda</span>
-                            <span class="skill-tag">DynamoDB</span>
-                            <span class="skill-tag">S3</span>
-                            <span class="skill-tag">Athena</span>
-                            <span class="skill-tag">EKS</span>
-                            <span class="skill-tag">Docker</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="skills-row">
-                    <div class="skill-category-main">
-                        <h4>🤖 Machine Learning & AI</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag primary">TensorFlow</span>
-                            <span class="skill-tag primary">PyTorch</span>
-                            <span class="skill-tag">Qiskit</span>
-                            <span class="skill-tag">Neural Architecture Search</span>
-                            <span class="skill-tag">Quantum ML</span>
-                        </div>
-                    </div>
-                    <div class="skill-category-main">
-                        <h4>📊 Data & Observability</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag primary">SQL</span>
-                            <span class="skill-tag">Data Pipelines</span>
-                            <span class="skill-tag">Prometheus</span>
-                            <span class="skill-tag">Grafana</span>
-                            <span class="skill-tag">ETL</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="about-summary">
-                <h3>What I Bring to Your Team</h3>
-                <div class="value-props">
-                    <div class="value-prop">
-                        <strong>🚀 From Contests to Production:</strong> Cut my teeth on competitive programming and hackathons, then applied that problem-solving mindset to build systems serving millions at Amazon and Kotak.
-                    </div>
-                    <div class="value-prop">
-                        <strong>🔬 Research + Shipping:</strong> Final year project on reward side-channels in RL. Published AI safety work with MIRIx. But also shipped real features—UPI Circle, automated loan pipelines, data infrastructure.
-                    </div>
-                    <div class="value-prop">
-                        <strong>🎓 Leadership & Community:</strong> IEEE Computer Society Chair as a sophomore (our chapter was recognized as world's best in 2020). Google DSC Campus Lead. Grew IEEE membership 28% through AI workshops.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <div class="container">
-            <h2>Featured Projects</h2>
-            <p style="text-align: center; color: #666; margin-bottom: 2rem; font-size: 1.05rem;">Highlighted work demonstrating backend engineering and ML research capabilities</p>
-            
-            <div class="projects-grid">
-                <div class="project-card featured-project">
-                    <div class="project-type">Backend + ML</div>
-                    <h3>🧠 Friends Circle Platform</h3>
-                    <p>Full-stack platform using <strong>vector embeddings</strong> for intelligent friend matching. Built with production-grade backend architecture.</p>
-                    <ul class="project-highlights">
-                        <li>FastAPI backend with <strong>&lt;500ms query latency</strong></li>
-                        <li>QDrant vector database for semantic search</li>
-                        <li>GraphQL API for efficient data fetching</li>
-                        <li>AI-powered event scheduling recommendations</li>
-                    </ul>
-                    <div class="project-tags">
-                        <span class="tag">FastAPI</span>
-                        <span class="tag">Python</span>
-                        <span class="tag">QDrant</span>
-                        <span class="tag">GraphQL</span>
-                        <span class="tag">NextJS</span>
-                    </div>
-                    <a href="https://github.com/jakeislive" target="_blank" class="project-link">View Project →</a>
-                </div>
-
-                <div class="project-card featured-project">
-                    <div class="project-type">ML Research</div>
-                    <h3>🔐 Quantum ML for Network Security</h3>
-                    <p>Research comparing <strong>quantum ML methods</strong> (QCNN, QNN, VQC, QSVM) against classical baselines for intrusion detection.</p>
-                    <ul class="project-highlights">
-                        <li>Implemented 5 quantum ML architectures</li>
-                        <li>Benchmarked vs. SVM, Decision Tree, Random Forest</li>
-                        <li>Demonstrated improved feature representation</li>
-                    </ul>
-                    <div class="project-tags">
-                        <span class="tag">Quantum ML</span>
-                        <span class="tag">TensorFlow</span>
-                        <span class="tag">Qiskit</span>
-                        <span class="tag">Python</span>
-                    </div>
-                    <a href="https://github.com/jakeislive/Quantum-Sentinel" target="_blank" class="project-link">View Repository →</a>
-                </div>
-
-                <div class="project-card featured-project">
-                    <div class="project-type">ML Research</div>
-                    <h3>⚙️ Zero-Cost Neural Architecture Search</h3>
-                    <p>Novel approach replacing training-based accuracy with <strong>zero-cost proxy scores</strong> in genetic algorithm optimization.</p>
-                    <ul class="project-highlights">
-                        <li>Modified NSGA-Net framework</li>
-                        <li>Eliminated need for model training during search</li>
-                        <li>Reduced architecture search time significantly</li>
-                    </ul>
-                    <div class="project-tags">
-                        <span class="tag">NAS</span>
-                        <span class="tag">Genetic Algorithms</span>
-                        <span class="tag">TensorFlow</span>
-                        <span class="tag">Python</span>
-                    </div>
-                    <a href="https://github.com/jakeislive" target="_blank" class="project-link">View Work →</a>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-type">AI Safety</div>
-                    <h3>🔬 Coherent Extrapolated Volition</h3>
-                    <p>Group study with MIRIx on CEV and its flaws. We posted our analysis in a respected AI safety community, sparking discussion on the implications and potential fixes.</p>
-                    <div class="project-tags">
-                        <span class="tag">AI Safety</span>
-                        <span class="tag">Research</span>
-                        <span class="tag">MIRIx</span>
-                    </div>
-                    <a href="https://github.com/jakeislive" target="_blank" class="project-link">Learn More →</a>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-type">Full Stack</div>
-                    <h3>🧠 Mentem - Mental Health Platform</h3>
-                    <p>Healthcare platform with intelligent matching and personalized recommendations for mental health support.</p>
-                    <div class="project-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Healthcare</span>
-                        <span class="tag">ML</span>
-                    </div>
-                    <a href="https://github.com/jakeislive/Mentem" target="_blank" class="project-link">View Repository →</a>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-type">Game Theory</div>
-                    <h3>🎮 Aumann Agreement Game</h3>
-                    <p>Born from a MIRIx paper discussion—a rationality calibration game where players converge to agreement through Bayesian updating. Built it to make the theorem tangible.</p>
-                    <div class="project-tags">
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">Game Theory</span>
-                    </div>
-                    <a href="https://github.com/jakeislive/aumann" target="_blank" class="project-link">View Repository →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="section">
-        <div class="container">
-            <h2>Work Experience</h2>
-            <div class="timeline">
-
-                <div class="timeline-item featured">
-                    <div class="company-badge aws">AWS</div>
-                    <h3>Software Development Engineer</h3>
-                    <div class="date">June 2022 – April 2023</div>
-                    <p><strong>Amazon Web Services</strong> - Bangalore, India</p>
-                    <ul style="margin-left: 1rem; color: #666;">
-                        <li><strong>Automated data transformation pipelines</strong> — designed Athena-based catalog generation, eliminating 60% of manual overhead for data teams</li>
-                        <li><strong>Built distributed job allocation system</strong> — developed tooling for managing workloads across fully managed AWS infrastructure with real-time metadata insights</li>
-                        <li><strong>Optimized supply chain operations</strong> — shipped feature reducing manual steps by 30%, directly impacting Amazon's operational efficiency</li>
-                    </ul>
-                    <div class="tech-used">
-                        <strong>Stack:</strong> Python, AWS (Lambda, Athena, S3, DynamoDB), CDK, Data Pipelines
-                    </div>
-                </div>
-                <div class="timeline-item featured">
-                    <div class="company-badge">Kotak</div>
-                    <h3>Software Development Engineer</h3>
-                    <div class="date">May 2023 – August 2025</div>
-                    <p><strong>Kotak Mahindra Bank</strong> - Bangalore, India</p>
-                    <ul style="margin-left: 1rem; color: #666;">
-                        <li><strong>Built UPI Circle service from scratch</strong> — designed delegated payment flows ensuring transaction consistency across millions of users in India's largest payment network</li>
-                        <li><strong>Reduced loan processing from 2-3 days → 3 hours</strong> — automated E-Loan pipeline with intelligent data workflows, cutting manual review effort by 70%</li>
-                        <li><strong>Improved system observability by 40%</strong> — integrated Prometheus/Grafana monitoring into backend services, dramatically reducing mean-time-to-diagnosis</li>
-                    </ul>
-                    <div class="tech-used">
-                        <strong>Stack:</strong> Java Spring Boot, AWS (EKS, S3, DynamoDB), Athena, Docker, Prometheus, Grafana
-                    </div>
-                </div>
-            </div>
-
-            <h2 style="margin-top: 3rem;">Education</h2>
-            <div class="education-grid">
-                <div class="education-card">
-                    <div class="degree-badge">M.Eng</div>
-                    <h3>Computer Science & Engineering</h3>
-                    <p class="school">University of Waterloo</p>
-                    <p class="location">Waterloo, ON, Canada</p>
-                    <p class="date">Sept 2025 – Dec 2026</p>
-                    <p class="focus"><strong>Focus:</strong> Artificial Intelligence & Machine Learning</p>
-                </div>
-                <div class="education-card">
-                    <div class="degree-badge">B.Tech</div>
-                    <h3>Computer Science & Engineering</h3>
-                    <p class="school">College of Engineering Trivandrum</p>
-                    <p class="location">Trivandrum, India</p>
-                    <p class="date">Aug 2018 – May 2022</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <h2>Get In Touch</h2>
-            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem; color: #666;">
-                Let's connect and discuss how I can contribute to your project or team.
-            </p>
-            <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
-                <a href="mailto:j32abrah@uwaterloo.ca" class="btn btn-primary">Email</a>
-                <a href="https://github.com/jakeislive" target="_blank" class="btn btn-primary">GitHub</a>
-                <a href="https://www.linkedin.com/in/jacob-abrahame" target="_blank" class="btn btn-primary">LinkedIn</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Jacob Abraham. All rights reserved.</p>
-            <div class="social-links">
-                <a href="https://github.com/jakeislive" target="_blank">GitHub</a>
-                <a href="https://www.linkedin.com/in/jacob-abrahame" target="_blank">LinkedIn</a>
-                <a href="https://jacobabraham.live/" target="_blank">Website</a>
-            </div>
-        </div>
-    </footer>
+      </section>
+      <section class="section" id="experience" aria-labelledby="experience-title">
+        <div class="section-heading"><h2 id="experience-title">Experience</h2><span class="section-note">Where I’ve worked</span></div>
+        <article class="entry">
+          <div class="entry-heading">
+            <h3>Geotab</h3>
+            <p class="date"><time datetime="2026-05">May 2026</time> to <time datetime="2026-12">December 2026</time></p>
+          </div>
+          <p class="role">Software Developer Intern · Waterloo, Canada</p>
+          <ul class="achievements">
+            <li>Developed real-time OEM integration services supporting partner-specific Kafka, REST API and MQTT protocols, ingesting <strong>over 20,000 vehicle records per second</strong> and producing over 100,000 records per second.</li>
+            <li>Built scalable, highly available data processing services with <strong>300 ms best-case latency and under 5 s p99 latency.</strong></li>
+            <li>Used BigQuery, Compute Engine, Cloud Monitoring and Grafana, with Redis and Cloud Tasks for caching, asynchronous processing and workload scaling.</li>
+          </ul>
+          <p class="stack">C# · .NET · Kafka · REST API · MQTT · GCP · Redis · Cloud Tasks · Grafana</p>
+        </article>
+        <article class="entry">
+          <div class="entry-heading">
+            <h3>Kotak Mahindra Bank</h3>
+            <p class="date"><time datetime="2023-05">May 2023</time> to <time datetime="2025-08">Aug 2025</time></p>
+          </div>
+          <p class="role">Software Development Engineer · Bangalore</p>
+          <ul class="achievements">
+            <li>Built a payment service for delegated payment flows, maintaining transaction consistency at <strong>1,500 requests per second.</strong></li>
+            <li>Automated the E-Loan application pipeline with Temporal, <strong>reducing manual review effort by 70%</strong> and processing time from days to hours. Generated periodic financial reports through event-based calls on DynamoDB and Athena.</li>
+            <li>Integrated Prometheus and Grafana monitoring into backend services, <strong>reducing issue diagnosis time by 40%.</strong></li>
+            <li>Developed Java Spring Boot microservices deployed on Kubernetes, with data pipelines using S3, DynamoDB and Athena.</li>
+          </ul>
+          <p class="stack">Java · Spring Boot · Temporal · Kubernetes · S3 · DynamoDB · Athena · Prometheus · Grafana</p>
+        </article>
+        <article class="entry">
+          <div class="entry-heading">
+            <h3>Amazon</h3>
+            <p class="date"><time datetime="2022-07">July 2022</time> to <time datetime="2023-03">March 2023</time></p>
+          </div>
+          <p class="role">Software Development Engineer · Bangalore</p>
+          <ul class="achievements">
+            <li>Designed RDS-to-Athena pipelines with EventBridge, Lambda and Glue to automate data transformation and catalog generation, <strong>reducing processing overhead by 60%</strong> and offloading analytical queries from production databases.</li>
+            <li>Built an AWS-based ML training platform using Batch and Lambda to orchestrate concurrent training workloads, with a React dashboard for real-time job and system-state monitoring.</li>
+            <li>Developed weight-validation logic for AWS Load Cell Validation to detect and normalize erroneous readings, reducing retries and <strong>improving process efficiency by 30%.</strong></li>
+          </ul>
+          <p class="stack">AWS · RDS · EventBridge · Lambda · Glue · Athena · Batch · React</p>
+        </article>
+      </section>
+      <section class="section" id="work" aria-labelledby="work-title">
+        <div class="section-heading"><h2 id="work-title">Selected work</h2><span class="section-note">Built &amp; explored</span></div>
+        <article class="entry project">
+          <p class="project-category">AI agent payments &amp; authorization</p>
+          <div class="entry-heading">
+            <h3>Mandate</h3>
+            <p class="date"><time datetime="2026-11">November 2026</time></p>
+          </div>
+          <p>A blockchain-based payment platform for AI agents. I built smart contracts to enforce spending limits and identity verification, and integrated LangChain and x402 to enable autonomous transactions with on-chain authorization and auditable payment receipts.</p>
+          <p class="stack">TypeScript · Node.js · LangChain · x402 · Smart contracts</p>
+          <a class="text-link" href="https://mandate.jacob13400.workers.dev/">Visit Mandate</a>
+        </article>
+        <article class="entry project">
+          <p class="project-category">Friend matching &amp; event recommendations</p>
+          <div class="entry-heading">
+            <h3>Friends Circle Platform</h3>
+            <p class="date"><time datetime="2026-01">January 2026</time></p>
+          </div>
+          <p>A platform to match people with friend groups based on shared interests. I stored user preferences in Qdrant vector tables and used GraphQL for queries within 500 ms and data mutations. An AI model analyzes interest correlations to recommend and schedule group events through a React application.</p>
+          <p class="stack">FastAPI · Next.js · Qdrant · GraphQL · React</p>
+          <a class="text-link" href="https://github.com/jakeislive/FriendsCircle">Friends Circle source code</a>
+        </article>
+        <article class="entry project">
+          <p class="project-category">Local AI-assisted development</p>
+          <div class="entry-heading">
+            <h3>AI Coding Agent Harness</h3>
+            <p class="date"><time datetime="2026-10">October 2026</time></p>
+          </div>
+          <p>An AI agent harness built with Pi and Ollama, using selective tool exposure, context management and token-efficient workflows. I developed workflows for codebase exploration, debugging, refactoring and test generation, with review and validation of generated code.</p>
+          <p class="stack">Pi · Ollama · LLMs · Agentic tooling</p>
+        </article>
+      </section>
+      <section class="section" aria-labelledby="skills-title">
+        <div class="section-heading"><h2 id="skills-title">Tools I work with</h2></div>
+        <dl class="skills">
+          <div><dt>Languages</dt><dd>Java · Python · C# · SQL</dd></div>
+          <div><dt>Backend</dt><dd>.NET · Spring Boot · REST API · GraphQL · Temporal</dd></div>
+          <div><dt>AWS</dt><dd>EKS · S3 · DynamoDB · Lambda · Glue · Athena · SQS · SNS</dd></div>
+          <div><dt>GCP</dt><dd>BigQuery · Kubernetes Engine · Monitoring</dd></div>
+          <div><dt>Infrastructure</dt><dd>Kafka · Redis · Docker · Kubernetes · Terraform</dd></div>
+          <div><dt>Analytics</dt><dd>Prometheus · Grafana · Swagger</dd></div>
+        </dl>
+      </section>
+      <section class="section" aria-labelledby="education-title">
+        <div class="section-heading"><h2 id="education-title">Education</h2></div>
+        <article class="entry education">
+          <div class="entry-heading"><h3>University of Waterloo</h3><p class="date">Expected <time datetime="2027-04">April 2027</time></p></div>
+          <p>Master of Engineering, Computer Engineering</p>
+          <p class="education-detail">Waterloo, ON</p>
+        </article>
+      </section>
+      <section class="section contact" id="contact" aria-labelledby="contact-title">
+        <p class="eyebrow">Get in touch</p>
+        <h2 id="contact-title">Let’s build something useful.</h2>
+        <p>If you’re hiring for software engineering or AI engineering roles, I’d like to hear about your team.</p>
+        <a class="text-link email-link" href="mailto:j32abrah@uwaterloo.ca">j32abrah@uwaterloo.ca</a>
+        <p class="contact-details">Waterloo, Canada · <a href="tel:+12265817505">(226) 581-7505</a></p>
+      </section>
+    </main>
+    <footer><p>© 2026 Jacob Abraham</p><a href="#main">Back to top</a></footer>
+  </div>
 </body>
 </html>

@@ -1,27 +1,28 @@
-# Jacob Abraham - Portfolio
+# Jacob Abraham
 
-Personal portfolio website showcasing my experience as a Software Engineer with 3 years at Amazon and Kotak Mahindra Bank.
+A personal portfolio for software engineering and AI engineering roles. Built with static HTML and CSS. All essential content is available without JavaScript.
 
-## 🌐 Live Site
+## Local preview
 
-[jacobabraham.me](https://jacobabraham.me/)
+Run from this directory:
 
-## 👨‍💻 About
+```sh
+python3 -m http.server 8000 --bind 127.0.0.1
+```
 
-I'm a Software Engineer currently pursuing my M.Eng in Computer Science at the University of Waterloo, focusing on AI/ML. Previously, I built scalable systems at AWS and Kotak Mahindra Bank.
+Open http://localhost:8000 in your browser.
 
+## Files
 
-## 🚀 Featured Experience
+* `index.html` contains the portfolio and page metadata.
+* `styles.css` contains mobile and desktop layouts plus print styles.
+* `favicon.svg` contains the site icon.
+* `CNAME` configures the custom domain for GitHub Pages.
 
-- **Amazon Web Services** - Built data transformation pipelines and distributed job allocation systems
-- **Kotak Mahindra Bank** - Designed UPI Circle service and automated loan processing pipelines
+## Contact
 
-## 📫 Contact
+[Email](mailto:j32abrah@uwaterloo.ca) · [GitHub](https://github.com/jakeislive) · [LinkedIn](https://www.linkedin.com/in/jacob-abrahame)
 
-- Email: j32abrah@uwaterloo.ca
-- LinkedIn: [jacob-abrahame](https://www.linkedin.com/in/jacob-abrahame)
-- GitHub: [jakeislive](https://github.com/jakeislive)
+## License
 
-## 📄 License
-
-© 2025 Jacob Abraham. All rights reserved.
+© Jacob Abraham. All rights reserved.
